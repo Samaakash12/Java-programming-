@@ -1,0 +1,42 @@
+import java.util.Scanner;
+import java.util.Arrays;
+
+public class NthMaximumFinder {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        // Step 1: Input the number of elements
+        System.out.print("Enter the number of elements: ");
+        int n = input.nextInt();
+
+        int[] numbers = new int[n];
+
+        // Step 2: Read the array elements
+        System.out.println("Enter " + n + " numbers:");
+        for (int i = 0; i < n; i++) {
+            numbers[i] = input.nextInt();
+        }
+
+        // Step 3: Ask which Nth maximum to find
+        System.out.print("Enter the value of N (for Nth maximum): ");
+        int nth = input.nextInt();
+
+        // Step 4: Check if N is valid
+        if (nth <= 0 || nth > n) {
+            System.out.println("Invalid input. N must be between 1 and " + n);
+        } else {
+            // Step 5: Sort the array in descending order
+            Arrays.sort(numbers); // sorts in ascending
+            // Reverse the array for descending order
+            int[] descending = new int[n];
+            for (int i = 0; i < n; i++) {
+                descending[i] = numbers[n - 1 - i];
+            }
+
+            // Step 6: Print Nth maximum
+            System.out.println(nth + "th maximum number is: " + descending[nth - 1]);
+        }
+
+        input.close();
+    }
+}
