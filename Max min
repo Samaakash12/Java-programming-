@@ -1,0 +1,39 @@
+import java.util.Scanner;
+
+public class MaxMinFinder {
+    public static void main(String[] args) {
+        Scanner input = new Scanner(System.in);
+
+        // Ask user how many numbers they want to enter
+        System.out.print("Enter the number of elements: ");
+        int n = input.nextInt();
+
+        int[] numbers = new int[n];
+
+        // Input elements
+        System.out.println("Enter " + n + " numbers:");
+        for (int i = 0; i < n; i++) {
+            numbers[i] = input.nextInt();
+        }
+
+        // Initialize max and min with the first element
+        int max = numbers[0];
+        int min = numbers[0];
+
+        // Loop to find max and min
+        for (int i = 1; i < n; i++) {
+            if (numbers[i] > max) {
+                max = numbers[i];
+            }
+            if (numbers[i] < min) {
+                min = numbers[i];
+            }
+        }
+
+        // Print results
+        System.out.println("Maximum number is: " + max);
+        System.out.println("Minimum number is: " + min);
+
+        input.close();
+    }
+}
