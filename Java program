@@ -1,0 +1,27 @@
+public class PerfectNumberFinder {
+    public static void main(String[] args) {
+        int count = 0; // To count how many perfect numbers we have found
+        int number = 1; // Starting from 1
+
+        System.out.println("First 3 Perfect Numbers:");
+
+        while (count < 3) {
+            int sum = 0;
+
+            // Find divisors and calculate their sum
+            for (int i = 1; i < number; i++) {
+                if (number % i == 0) {
+                    sum += i;
+                }
+            }
+
+            // Check if the number is perfect
+            if (sum == number) {
+                System.out.println(number);
+                count++;
+            }
+
+            number++; // Move to the next number
+        }
+    }
+}
